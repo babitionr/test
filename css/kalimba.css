@@ -1,0 +1,942 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@700&display=swap');
+@font-face{
+    font-family:'text-font';
+    src: url('/fonts/Text.ttf');
+  }
+.kalimbaPage {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+}
+.kalimbaPage .animation-klb {
+    position: absolute;
+    top: 80px;
+}
+
+.fa-sharp,.fa-compact-disc,.fa-headphones,.fa-volume-high {
+    animation: animationklb 15s linear infinite;
+    animation-duration: calc(150s/ var(--i));
+    color: #fff;
+    opacity: 0.8;
+    text-shadow: 0 0 5px #fff,
+    0 0 10px #ffe9cf,
+    0 0 15px #ffe9cf,
+    0 0 20px #ffe9cf,
+    0 0 35px #ffe9cf,
+    0 0 40px #ffe9cf,
+    0 0 50px #ffe9cf,
+    0 0 75px #ffe9cf;
+}
+
+
+
+
+@keyframes animationklb {
+    0%
+    {
+        transform: translateY(100vh) scale(0.5);
+    }
+    100%
+    {
+        transform: translateY(-10vh) scale(3);
+    }
+}
+
+/*#region Kalimba*/
+.title-intrusment {
+    display: flex;
+    font-size: 80px;
+    position: absolute;
+    margin-left: 60px;
+    margin-top: -30px;
+    font-family: 'text-font';
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-shadow:    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px #98f5ff,
+                    0 0 82px #98f5ff,
+                    0 0 92px #98f5ff,
+                    0 0 102px #98f5ff,
+                    0 0 151px #98f5ff;
+    user-select: none;
+    filter: blur(0.007em);
+    animation: shake 2s linear forwards infinite;
+}
+
+@keyframes shake {
+    5%, 15%, 25%, 35%, 55%, 65%, 75%, 95% {
+        filter: blur(0.018em);
+        transform: translateY(0.018em) rotate(0deg);
+    }
+
+    10%, 30%, 40%, 50%, 70%, 80%, 90% {
+        filter: blur(0.01em);
+        transform: translateY(-0.018em) rotate(0deg);
+    }
+
+    20%, 60% {
+        filter: blur(0.03em);
+        transform: translate(-0.018em, 0.018em) rotate(0deg);
+    }
+
+    45%, 85% {
+        filter: blur(0.03em);
+        transform: translate(0.018em, -0.018em) rotate(0deg);
+    }
+
+    100% {
+        filter: blur(0.007em);
+        transform: translate(0) rotate(-0.5deg);
+    }
+}
+
+
+.kalimba {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+}
+.key {
+    margin-left: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'text-font';
+    z-index: 1;
+}
+
+/*#region icon*/
+.key-1 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 270px ;
+    margin-left: 1px;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #98f5ff,
+    0 0 82px #98f5ff,
+    0 0 92px #98f5ff,
+    0 0 102px #98f5ff,
+    0 0 151px #98f5ff;
+    display: block;
+}
+.key-1 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+    padding-left: 3px;
+}
+
+
+.key-2 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 280px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-2 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-3 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 290px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-3 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-4 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 300px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-4 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-5 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 310px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-5 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-6 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 320px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-6 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-7 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 330px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-7 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-8 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 340px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-8 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-9 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 350px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-9 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-10 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 340px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-10 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-11 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 330px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-11 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-12 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 320px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-12 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-13 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 310px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-13 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-14 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 300px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-14 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-15 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 290px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-15 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-16 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 280px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+}
+.key-16 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+.key-17 .alphabet{
+    color: #98f5ff;
+    position: absolute;
+    margin-top: 270px ;
+    margin-left: 1px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #98f5ff,
+      0 0 82px #98f5ff,
+      0 0 92px #98f5ff,
+      0 0 102px #98f5ff,
+      0 0 151px #98f5ff;
+      display: block;
+    color: #98f5ff;
+}
+.key-17 h7 {
+    color: #4a708b;
+    font-family: 'text-font';
+    font-size: 12px;
+    text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #98f5ff,
+                0 0 80px #98f5ff,
+                0 0 90px #98f5ff,
+                0 0 100px #98f5ff,
+                0 0 150px #98f5ff;
+    position: absolute;
+    margin-top: 120px ;
+}
+
+
+
+/*#endregion icon*/
+
+
+/*#region key*/
+.key-1 {   
+    width: 22px;
+    height: 270px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-2 {   
+    width: 22px;
+    height: 280px;
+    margin-top: 10px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-3 {   
+    width: 22px;
+    height: 290px;
+    margin-top: 20px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-4 {   
+    width: 22px;
+    height: 300px;
+    margin-top: 30px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-5 {   
+    width: 22px;
+    height: 310px;
+    margin-top: 40px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-6 {   
+    width: 22px;
+    height: 320px;
+    margin-top: 50px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-7 {   
+    width: 22px;
+    height: 330px;
+    margin-top: 60px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-8 {   
+    width: 22px;
+    height: 340px;
+    margin-top: 70px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-9 {   
+    width: 22px;
+    height: 350px;
+    margin-top: 80px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-10 {   
+    width: 22px;
+    height: 340px;
+    margin-top: 70px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-11 {   
+    width: 22px;
+    height: 330px;
+    margin-top: 60px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-12 {   
+    width: 22px;
+    height: 320px;
+    margin-top: 50px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-13 {   
+    width: 22px;
+    height: 310px;
+    margin-top: 40px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-14 {   
+    width: 22px;
+    height: 300px;
+    margin-top: 30px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-15 {   
+    width: 22px;
+    height: 290px;
+    margin-top: 20px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-16 {   
+    width: 22px;
+    height: 280px;
+    margin-top: 10px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+.key-17 {   
+    width: 22px;
+    height: 270px;
+    background: transparent;
+    border: 2px solid #98f5ff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #98f5ff,
+            0 0 0.8rem #98f5ff,
+            0 0 2.8rem #98f5ff,
+            inset 0 0 1.3rem #98f5ff; 
+    border-radius: 0px 0px 20px 20px;
+}
+/*#endregion key*/
+
+.key-klb {
+    animation: shake 0.5s;
+    transform: scale(.75);
+    background: #98f5ff;
+    box-shadow: 0 0 10px #98f5ff, 0 0 40px #98f5ff, 0 0 80px #98f5ff;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+/*#endregion Kalimba*/

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<head>
+    
+    <title>Music player, kalimba</title>
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="./img/icon/favicon.png">
+
+
+     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/respond.css">
+    <link rel="stylesheet" href="./css/kalimba.css">
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <!----Navigation-->
+    <header class="nav">
+        <div class="navbar-brand" id="logoButton">
+            <h1 className='logo'>LOGO</h1>
+        </div>
+        <li class="nav-item">
+            <a class="nav-link active" id="homeButton" aria-current="page" href="#" onclick="muteKlb()">music <i class="fa-solid fa-music"></i> </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="kalimbaButton"  aria-current="page" href="#" onclick="unmuteKlb()">kalimba <i class="fa-solid fa-cloud"></i></a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link disabled" id="comingsoon"href="#" tabindex="-1" aria-disabled="true">Coming Soon</a>
+        </li>
+        
+        <div class="search-bar">
+            <form name="search">
+                <input for="searchbox" type="text" id="myInput" class="input" placeholder="search...">
+            </form>
+        </div>
+    </header>
+
+<div class="homePage" id="homepage" data-page="1">
+<!---Musicplayer-->
+<div class="musicplayer">
+        
+        <div class="player-items">
+            <div class="controlmusic">
+                
+                <header class="title-song">
+                    <p class="nowplaying">Now playing --> &nbsp &nbsp</p>
+                    <p class="name-song"></p>
+                </header> 
+
+                <div class="btnmusic btnmusic-repeat" id="repeat-track" onclick="repeatTrack()" style="height: 30px; width: 30px; ">
+                    <img src="./img/icon/loop-icon.png"><img/>
+                </div>
+                <div class="btnmusic btn-prev" id="prev-track" style="height: 30px; width: 30px; ">
+                    <img src="./img/icon/prev-icon.png"><img/>
+                </div>
+                <div class="btnmusic btnmusic-toggle-play">
+                    <img src="./img/icon/play-icon.png" class="icon-play" id="play"><img/>
+                    <img src="./img/icon/pause-icon.png" class="icon-pause" id="pause"><img/>
+                </div>
+                <div class="btnmusic btnmusic-next" id="next-track" style="height: 30px; width: 30px;">
+                    <img src="./img/icon/next-icon.png"><img/>
+                </div>
+                <div class="btnmusic btnmusic-random" id="random-track" style="height: 30px; width: 30px;">
+                    <img src="./img/icon/random-icon.png"><img/>
+                </div>
+                <div class="volumeContainer">
+                    <div class="volume" id="volume"></div>
+                </div>
+            </div>
+        </div>
+
+        <input id="progressBar" class="progress" type="range" value="0" step="1" min="0" max="100">
+
+        <div type="range" id="volume">
+            <input type="range" id="volume-control" class="volume-control" min="0" max="100" value="50" style="width: 250px;">
+            <div class="volume-icon">            
+                <i class="fa fa-minus"></i>
+                <i class="fa fa-plus"></i>
+            </div>
+         </div>
+
+</div>
+
+<!---AUDIO-->
+        <audio id="audio"></audio>
+        <div id="listmusic" class="listmusic" style="height: 78%; width:400px;">
+            <ul id="name-song">
+            </ul>
+        </div>
+        <div class="track-time">                
+            <div id="currentTime"></div>
+            <div id="durationTime"></div>
+        </div>
+
+
+<!--CD-->
+<div class="cd-thumb">
+    <div class="cd-thumb-card cd-disc-section">
+        <img src="./img/cd/cd.svg" alt="" id="cdani" class="cdani">
+    </div>
+    <div class="cd-thumb-card board">
+        <div id="visualizer" >
+            <canvas class="opacity-js" id="canvas" height="300px" width="390px"></canvas>
+        </div>
+    </div>
+    
+</div> 
+<!---Clock-->
+<div class="menu">
+    <div id="clock"></div>
+    <div class="slider-banner">
+        <div class="slides-menu">
+            <img src="./img/slider/rock.webp">
+        </div>
+        <div class="slides-menu">
+            <img src="./img/slider/hiphop.jpg">
+        </div>
+        <div class="slides-menu">
+            <img src="./img/slider/jazz.jpg">
+        </div>
+        <div class="slides-menu">
+            <img src="./img/slider/punk.png">
+        </div>
+
+        <a class="prev" onclick="plusSlidesMenu(-1)">❮</a>
+        <a class="next" onclick="plusSlidesMenu(1)">❯</a>
+    </div>
+    <div class="cagetory">
+    <table>
+        <tr>
+        <td>
+            <div class="banner" style="background: linear-gradient(#96C291,#FFDBAA);">TOP BÀI HÁT TOÀN CẦU</div>
+        </td>
+        <td>
+            <div class="banner" style="background: linear-gradient(#FBF0B2,#FFC7EA);">TOP BÀI HÁT VIỆT NAM</div>
+        </td>
+        <td>
+            <div class="banner" style="background: linear-gradient(#D8B4F8,#CAEDFF);">TOP 50</div>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <div class="banner" style="background: linear-gradient(#97FFF4,#FFFD8C);">VIRAL 50</div>
+        </td>
+        <td>
+            <div class="banner" style="background: linear-gradient(#FAF1E4,#CEDEBD);">BẢNG XẾP HẠNG</div>
+        </td>
+        <td>
+            <div class="banner" style="background: linear-gradient(#FFE5E5,#F3FDE8);">TOP 50 HÀN QUỐC</div>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <div class="banner" style="background: linear-gradient(#E19898,#A2678A);">TOP BÀI HÁT ÂU MỸ</div>
+        </td>
+        <td>
+            <div class="banner" style="background: linear-gradient(#EEE0C9,#F1F0E8);">TOP 50 US-UK</div>
+        </td>
+        <td>
+            <div class="banner" style="background: linear-gradient(#6F61C0,#A084E8);">TOP BÀI HÁT THÁI LAN</div>
+        </td>
+        </tr>
+    </table>
+    </div>
+</div>
+</div>
+
+
+<!---Kalimba-->
+<div class="kalimbaPage" id="kalimbapage"data-page="2" style="display:none">
+    <section class="animation-klb">
+        <div class="icon-klb">
+            <span style="--i:11"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:24"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:12"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:39"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:22"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:10"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:23"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:18"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:16"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:19"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:20"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:25"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:18"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:28"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:21"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:13.5"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:26"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:17"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:13"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:30"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:14"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:31"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:26.5"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:25.5"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:15"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:11"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:24"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:12"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:39"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:22"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:10"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:23"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:18"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:16"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:19"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:20"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:25"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:18"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:28"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:21"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:13.5"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:26"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:17"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:13"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:30"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:14"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:31"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:26.5"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:25.5"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:15"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:11"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:24"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:12"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:39"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:22"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:10"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:23"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:18"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:16"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:19"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:20"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:25"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:18"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:28"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:21"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:13.5"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:26"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:17"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:13"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:30"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:14"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:31"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:26.5"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:25.5"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:15"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:11"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:24"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:12"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:39"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:22"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:10"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:23"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:18"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:16"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:19"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:20"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:25"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:18"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:28"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:21"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:13.5"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:26"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:17"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:13"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:30"><i class="fa-sharp fa-solid fa-music"></i></span>
+            <span style="--i:14"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+            <span style="--i:31"><i class="fa-solid fa-headphones"></i></span>
+            <span style="--i:26.5"><i class="fa-solid fa-compact-disc"></i></span>
+            <span style="--i:25.5"><i class="fa-sharp fa-solid fa-microphone"></i></span>
+            <span style="--i:15"><i class="fa-sharp fa-solid fa-volume-high"></i></span>
+        </div>
+    </section>
+    <div class="kalimba">
+        <div class="title-intrusment">kalimba</div>
+        <div class="key key-1" data-key="81">
+            <h7 class="note-song">D''</h7>
+            <span class="alphabet">Q</span>
+        </div>
+        <div class="key key-2" data-key="87">
+            <h7 class="note-song">B'</h7>
+            <span class="alphabet">W</span>
+        </div>
+        <div class="key key-3" data-key="65">
+            <h7 class="note-song">G'</h7>
+            <span class="alphabet">A</span>
+        </div>
+        <div class="key key-4" data-key="83">
+            <h7 class="note-song">E'</h7>
+            <span class="alphabet">S</span>
+        </div>
+        <div class="key key-5" data-key="68">
+            <h7 class="note-song">C'</h7>
+            <span class="alphabet">D</span>
+        </div>
+        <div class="key key-6" data-key="90">
+            <h7 class="note-song">A</h7>
+            <span class="alphabet">Z</span>
+        </div>
+        <div class="key key-7" data-key="88">
+            <h7 class="note-song">F</h7>
+            <span class="alphabet">X</span>
+        </div>
+        <div class="key key-8" data-key="67">
+            <h7 class="note-song">D</h7>
+            <span class="alphabet">C</span>
+        </div>
+        <div class="key key-9" data-key="86">
+            <h7 class="note-song">C</h7>
+            <span class="alphabet">V</span>
+        </div>
+        <div class="key key-10" data-key="66">
+            <h7 class="note-song">E</h7>
+            <span class="alphabet">B</span>
+        </div>
+        <div class="key key-11" data-key="78">
+            <h7 class="note-song">G</h7>
+            <span class="alphabet">N</span>
+        </div>
+        <div class="key key-12" data-key="77">
+            <h7 class="note-song">B</h7>
+            <span class="alphabet">M</span>
+        </div>
+        <div class="key key-13" data-key="72">
+            <h7 class="note-song">D'</h7>
+            <span class="alphabet">H</span>
+        </div>
+        <div class="key key-14" data-key="74">
+            <h7 class="note-song">F'</h7>
+            <span class="alphabet">J</span>
+        </div>
+        <div class="key key-15" data-key="75">
+            <h7 class="note-song">A'</h7>
+            <span class="alphabet">K</span>
+        </div>
+        <div class="key key-16" data-key="73">
+            <h7 class="note-song">C''</h7>
+            <span class="alphabet">I</span>
+        </div>
+        <div class="key key-17" data-key="79">
+            <h7 class="note-song">E''</h7>
+            <span class="alphabet">O</span>
+        </div>
+    </div>
+    <div class="audioklb">
+    <audio id="kalimbaAudio" data-key="81" src="./assets/sound/kalimba/D''.mp3"></audio>
+    <audio id="kalimbaAudio1" data-key="87" src="./assets/sound/kalimba/B'.mp3"></audio>
+    <audio id="kalimbaAudio2" data-key="65" src="./assets/sound/kalimba/G'.mp3"></audio>
+    <audio id="kalimbaAudio3" data-key="83" src="./assets/sound/kalimba/E'.mp3"></audio>
+    <audio id="kalimbaAudio4" data-key="68" src="./assets/sound/kalimba/C'.mp3"></audio>
+    <audio id="kalimbaAudio5" data-key="90" src="./assets/sound/kalimba/A.mp3"></audio>
+    <audio id="kalimbaAudio6" data-key="88" src="./assets/sound/kalimba/F.mp3"></audio>
+    <audio id="kalimbaAudio7" data-key="67" src="./assets/sound/kalimba/D.mp3"></audio>
+    <audio id="kalimbaAudio8" data-key="86" src="./assets/sound/kalimba/C.mp3"></audio>
+    <audio id="kalimbaAudio9" data-key="66" src="./assets/sound/kalimba/E.mp3"></audio>
+    <audio id="kalimbaAudio10" data-key="78" src="./assets/sound/kalimba/G.mp3"></audio>
+    <audio id="kalimbaAudio11" data-key="77" src="./assets/sound/kalimba/B.mp3"></audio>
+    <audio id="kalimbaAudio12" data-key="72" src="./assets/sound/kalimba/D'.mp3"></audio>
+    <audio id="kalimbaAudio13" data-key="74" src="./assets/sound/kalimba/F'.mp3"></audio>
+    <audio id="kalimbaAudio14" data-key="75" src="./assets/sound/kalimba/A'.mp3"></audio>
+    <audio id="kalimbaAudio15" data-key="73" src="./assets/sound/kalimba/C''.mp3"></audio>
+    <audio id="kalimbaAudio16" data-key="79" src="./assets/sound/kalimba/E''.mp3"></audio>
+    </div>
+
+
+
+    
+</div>
+<script src="./js/index.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/slideshow.js"></script>
+<script src="./js/clock.js"></script>
+<script src="./js/changepage.js"></script>
+<script src="./js/kalimba.js"></script>
+
+
+</body>
+
+<!--SCRIPT-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+
+</html>
