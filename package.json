@@ -1,0 +1,5 @@
+{
+    "script": {
+    "build": "npm run build"
+    }
+}
