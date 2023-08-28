@@ -18,7 +18,6 @@ function removeTransition(e) {
 
 window.addEventListener("keyup", removeTransition);
 window.addEventListener("keydown", playNote);
- slideklboptions[sildeklboptionIndex-1].style.display = "block";
 
 
 //expand
@@ -32,5 +31,3 @@ function dropdownoptionKlb() {
         menuDropdown.style.display = "none";
       }
   };
-
-dropdownKlb.addEventListener("click", dropdownoptionKlb);
