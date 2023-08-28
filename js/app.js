@@ -164,7 +164,6 @@ const app = {
     
     audio.onplay = function () {
       _this.isPlaying = true;
-      player.classList.add("playing");
       audioCtx.resume();
     };
 
@@ -172,7 +171,6 @@ const app = {
     
     audio.onpause = function () {
       _this.isPlaying = false;
-      player.classList.remove("playing");
     };
 
     // Khi tiến độ bài hát thay đổi
